@@ -2,7 +2,6 @@
     <div class="my-component">
         <div> {{ message }} - {{ reverseMessage }}</div>
         <div> Count Click: {{ countClicks }}</div>
-
         <div><button @click="sayHello">Click me</button></div>
     </div>
 </template>
@@ -19,7 +18,7 @@
       reverseMessage() {
         return this.message.split('').reverse().join('')
       },
-      countClick(){
+      countClick() {
         return this.countClicks
       }
     },
@@ -38,7 +37,7 @@
       countClick() {
         console.log("changed count")
       },
-      message() {
+      message(){
         console.log("changed messages")
       }
     }

@@ -7,11 +7,12 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import ConditionalRendering from './components/ConditionalRendering.vue'
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    HelloWorld,
+    ConditionalRendering
   }
 }
 </script>
