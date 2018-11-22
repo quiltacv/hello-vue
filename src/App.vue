@@ -4,6 +4,8 @@
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <ConditionalRendering/>
     <ListRendering/>
+
+    <ListRendering v-for="n in 10" :key="n"></ListRendering>
   </div>
 </template>
 
