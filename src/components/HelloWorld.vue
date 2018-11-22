@@ -27,7 +27,7 @@
     methods: {
       sayHello() {
         this.countClickM()
-        return this.message = 'this fun'
+        return this.message += this.countClick
       },
       countClickM() {
         return this.countClicks++
