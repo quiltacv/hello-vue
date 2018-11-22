@@ -1,6 +1,6 @@
 <template>
     <div class="my-component">
-        <div>{{ message }}</div>
+        <div>{{ message.split('').reverse().join('') }}</div>
         <div><button @click="sayHello">Click me</button></div>
     </div>
 </template>
@@ -8,7 +8,7 @@
   export default{
     data() {
       return {
-        message: "adadadad"
+        message: "FoxZi Vue hello"
       }
     },
     methods: {
