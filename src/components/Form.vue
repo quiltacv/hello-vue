@@ -23,6 +23,13 @@
             <input type="radio" v-model="radio" value="one">
             <input type="radio" v-model="radio" value="two">
         </div>
+
+        <input v-model.lazy="message" >
+        <input type="number" v-model="message" name="">
+        <input type="number" v-model.number="message" name="">
+        
+        <input type="number" v-model.trim="message" name="">
+
     </div>
 
 </template>
