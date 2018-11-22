@@ -3,17 +3,21 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
     <ConditionalRendering/>
+    <ListRendering/>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import ConditionalRendering from './components/ConditionalRendering.vue'
+import ListRendering from './components/ListRendering.vue'
+
 export default {
   name: 'app',
   components: {
     HelloWorld,
-    ConditionalRendering
+    ConditionalRendering,
+    ListRendering
   }
 }
 </script>
