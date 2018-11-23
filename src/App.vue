@@ -1,6 +1,6 @@
 <template>
   <ul id="app">
-    <tree :model="treeData"></tree>
+    <tree class="item" :model="treeData"></tree>
   </ul>
 </template>
 
@@ -19,7 +19,11 @@ var data = {
           name: 'child folder',
           children: [
             { name: 'hello' },
-            { name: 'wat' }
+            { name: 'wat',
+              children: [
+                {name: 'child folder'}
+              ]
+            }
           ]
         },
         { name: 'hello' },
