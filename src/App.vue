@@ -6,9 +6,11 @@
         :id="branch"
         :value="branch"
         name="branch"
-        v-model="currentBranch">
+        v-model="currentBranch"
+      >
       <label :for="branch"> {{ branch }} </label>
     </div>
+    <input v-model="quanlity">
     <p>vuejs/vue@{{ currentBranch }} </p>
     <ul>
       <li v-for="(record, index) in commits" :key=index>
@@ -22,14 +24,15 @@
 </template>
 
 <script>
-var apiURL = 'https://api.github.com/repos/vuejs/vue/commits?per_page=3&sha='
+var apiURL = 'https://api.github.com/repos/vuejs/vue/commits?per_page='
 export default {
   name: 'app',
   data() {
     return {
       branches: ['master', 'dev'],
       currentBranch: 'master',
-      commits: null
+      commits: null,
+      quanlity: 3
     }
   },
 
@@ -38,7 +41,8 @@ export default {
   },
 
   watch: {
-    currentBranch: 'fetchData'
+    currentBranch: 'fetchData',
+    quanlity: 'fetchData'
   },
 
   filters: {
@@ -55,10 +59,14 @@ export default {
     fetchData() {
       var xhr = new XMLHttpRequest()
       var self = this
-      xhr.open('GET', apiURL + self.currentBranch)
+      if (this.quanlity==0 || this.quanlity > 100) {
+        alert("Limit commit >0 AND <=100")
+        return
+      }
+      xhr.open('GET', apiURL + this.quanlity +'&sha='+self.currentBranch)
       xhr.onload = function () {
         self.commits = JSON.parse(xhr.responseText)
-        console.log(self.commits[0].html_url)
+        console.log(self.commits.length)
       }
       xhr.send()
     }
