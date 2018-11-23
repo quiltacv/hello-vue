@@ -1,8 +1,6 @@
 <template>
   <ul id="app">
-    <item>
-      <Tree :model="treeData"></Tree>
-    </item>
+    <tree :model="treeData"></tree>
   </ul>
 </template>
 

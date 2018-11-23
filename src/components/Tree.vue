@@ -8,20 +8,23 @@
       <span v-if="isFolder">[{{ open ? '-' : '+' }}]</span>
     </div>
     <ul v-show="open" v-if="isFolder">
-      <item
+      <tree
         class="item"
         v-for="(model, index) in model.children"
         :key="index"
         :model="model">
-      </item>
+      </tree>
       <li class="add" @click="addChild">+</li>
     </ul>
   </li>
 </template>
+
+
 <script>
 import Vue from 'vue'
 export default{
-  props: {
+ name: 'tree',
+ props: {
    model: Object
  },
  data() {
