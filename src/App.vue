@@ -10,7 +10,7 @@
       >
       <label :for="branch"> {{ branch }} </label>
     </div>
-    <input v-model="quanlity">
+    <input v-model="quanlity" type="number">
     <p>vuejs/vue@{{ currentBranch }} </p>
     <ul>
       <li v-for="(record, index) in commits" :key=index>
@@ -59,14 +59,13 @@ export default {
     fetchData() {
       var xhr = new XMLHttpRequest()
       var self = this
-      if (this.quanlity==0 || this.quanlity > 100) {
-        alert("Limit commit >0 AND <=100")
+      if (this.quanlity<=0 || this.quanlity > 100) {
+        alert("Limit quanlity commit >0 AND <=100")
         return
       }
       xhr.open('GET', apiURL + this.quanlity +'&sha='+self.currentBranch)
       xhr.onload = function () {
         self.commits = JSON.parse(xhr.responseText)
-        console.log(self.commits.length)
       }
       xhr.send()
     }
