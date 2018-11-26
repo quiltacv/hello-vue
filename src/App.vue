@@ -1,28 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <select-component/>
+    <Select2Component/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SelectComponent from './components/select.vue'
+import Select2Component from './components/select.vue'
+
 
 export default {
-  name: 'app',
   components: {
-    HelloWorld
-  }
+    SelectComponent,
+    Select2Component
+  },
+ el: '#app',
+ data: {
+   selected: 2,
+   options: [
+     { id: 1, text: 'Hello' },
+     { id: 2, text: 'World' }
+   ]
+ }
 }
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  html, body {
+    font: 13px/18px sans-serif;
+  }
+  select {
+    min-width: 300px;
+  }
 }
 </style>
