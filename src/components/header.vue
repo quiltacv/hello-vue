@@ -16,7 +16,7 @@
 </template>
 <script>
   import dynamics from 'dynamics.js'
-  export default{
+  export default {
     data() {
       return {
         dragging: false,
@@ -32,7 +32,7 @@
         var dy = this.c.y - 160
         var dampen = dy > 0 ? 2 : 4
         return {
-          transform: 'translate3d(0,' +dy/dampen+'+ px, 0)'
+          transform: 'translate3d(0,' + dy/dampen + 'px, 0)'
         }
       }
     },
