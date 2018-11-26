@@ -15,8 +15,9 @@
   </div>
 </template>
 <script>
+  import dynamics from 'dynamics.js'
   export default{
-    data: {
+    data() {
       return {
         dragging: false,
         c: { x: 160, y: 160 },
@@ -31,7 +32,7 @@
         var dy = this.c.y - 160
         var dampen = dy > 0 ? 2 : 4
         return {
-          transform: 'translate3d(0.' +dy/dampen'+py, 0)'
+          transform: 'translate3d(0,' +dy/dampen+'+ px, 0)'
         }
       }
     },
@@ -40,7 +41,7 @@
         e = e.changedTouches ? e.changedTouches[0] : e
         this.dragging = true
         this.start.x = e.pageX
-        this.stat.y = e.pageY
+        this.start.y = e.pageY
       },
       onDrag(e) {
         e = e.changedTouches ? e.changedTouches[0] : e
@@ -48,6 +49,7 @@
           this.c.x = 160 + (e.pageX - this.start.x)
           var dy = e.pageY - this.start.y
           var dampen = dy > 0 ? 1.5 : 4
+          this.c.y = 160 + dy / dampen
         }
       },
       stopDrag() {
